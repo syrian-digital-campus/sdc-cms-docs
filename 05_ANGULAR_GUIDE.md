@@ -664,3 +664,6 @@ export class CourseDetailComponent implements OnInit {
 **Document Version**: 1.0  
 **Last Updated**: December 2024
 
+
+
+

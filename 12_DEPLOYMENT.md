@@ -302,3 +302,6 @@ tar -czf files_backup_$(date +%Y%m%d).tar.gz /data/files
 **Document Version**: 1.0  
 **Last Updated**: December 2024
 
+
+
+
