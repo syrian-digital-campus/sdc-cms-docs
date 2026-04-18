@@ -8,6 +8,7 @@ Comprehensive documentation for the SDC-CMS project.
 - **[00_INTRODUCTION.md](./00_INTRODUCTION.md)** - Project overview, goals, and scope
 - **[01_ARCHITECTURE.md](./01_ARCHITECTURE.md)** - System architecture and design decisions
 - **[02_SETUP_GUIDE.md](./02_SETUP_GUIDE.md)** - Complete setup instructions
+- **[15_BEGINNER_START_AND_DEPLOY.md](./15_BEGINNER_START_AND_DEPLOY.md)** - **Beginner guide:** receive the project, run locally, deploy (start here if you are new)
 
 ### Technology Stack
 - **[03_TECHNOLOGY_STACK.md](./03_TECHNOLOGY_STACK.md)** - Detailed explanation of all technologies used
@@ -31,6 +32,8 @@ Comprehensive documentation for the SDC-CMS project.
 
 ## 🚀 Quick Start
 
+- **New to the project?** Start with [15_BEGINNER_START_AND_DEPLOY.md](./15_BEGINNER_START_AND_DEPLOY.md).
+
 1. **Read the Introduction**: Start with [00_INTRODUCTION.md](./00_INTRODUCTION.md) to understand what this project is about.
 
 2. **Understand the Architecture**: Read [01_ARCHITECTURE.md](./01_ARCHITECTURE.md) to see how everything fits together.
@@ -48,17 +51,18 @@ Comprehensive documentation for the SDC-CMS project.
 
 If you're completely new to this project and the technologies used, read in this order:
 
-1. [00_INTRODUCTION.md](./00_INTRODUCTION.md) - What is this project?
-2. [01_ARCHITECTURE.md](./01_ARCHITECTURE.md) - How does it work?
-3. [02_SETUP_GUIDE.md](./02_SETUP_GUIDE.md) - Get it running locally
-4. [03_TECHNOLOGY_STACK.md](./03_TECHNOLOGY_STACK.md) - What technologies are used?
-5. Technology-specific guides (if needed):
+1. [15_BEGINNER_START_AND_DEPLOY.md](./15_BEGINNER_START_AND_DEPLOY.md) - Hands-on: clone, run, deploy
+2. [00_INTRODUCTION.md](./00_INTRODUCTION.md) - What is this project?
+3. [01_ARCHITECTURE.md](./01_ARCHITECTURE.md) - How does it work?
+4. [02_SETUP_GUIDE.md](./02_SETUP_GUIDE.md) - Get it running locally
+5. [03_TECHNOLOGY_STACK.md](./03_TECHNOLOGY_STACK.md) - What technologies are used?
+6. Technology-specific guides (if needed):
    - [04_SPRING_BOOT_GUIDE.md](./04_SPRING_BOOT_GUIDE.md)
    - [05_ANGULAR_GUIDE.md](./05_ANGULAR_GUIDE.md)
    - [06_POSTGRESQL_GUIDE.md](./06_POSTGRESQL_GUIDE.md)
-6. [07_DEVELOPMENT_GUIDE.md](./07_DEVELOPMENT_GUIDE.md) - Start coding
-7. [08_API_DOCUMENTATION.md](./08_API_DOCUMENTATION.md) - Understand the API
-8. [11_SECURITY.md](./11_SECURITY.md) - Security considerations
+7. [07_DEVELOPMENT_GUIDE.md](./07_DEVELOPMENT_GUIDE.md) - Start coding
+8. [08_API_DOCUMENTATION.md](./08_API_DOCUMENTATION.md) - Understand the API
+9. [11_SECURITY.md](./11_SECURITY.md) - Security considerations
 
 ## 🎯 Project Repositories
 

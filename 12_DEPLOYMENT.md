@@ -2,6 +2,8 @@
 
 Guide for deploying SDC-CMS to production.
 
+**End-to-end handoff (deliverables, subdomains, doc map):** [16_PRODUCTION_DEPLOY_AND_HANDOFF.md](./16_PRODUCTION_DEPLOY_AND_HANDOFF.md)
+
 ## Production Checklist
 
 ### Security
