@@ -116,7 +116,7 @@ mvn spring-boot:run
 
 Without the **`dev`** profile, **no** demo users/courses are created automatically (`app.data.init.enabled` defaults to `false` for production safety).
 
-**Run on a server (production — short version):** Do **not** enable `dev` or `APP_DATA_INIT_ENABLED`. Copy the JAR after `mvn package` (e.g. `target/cms-1.0.0.jar`) to the server, then for example on Linux:
+**Run on a server (production — short version):** Do **not** enable `dev` or `APP_DATA_INIT_ENABLED`. Copy the JAR after `mvn package` (e.g. `target/cms-1.0.2.jar`) to the server, then for example on Linux:
 
 ```bash
 export SPRING_PROFILES_ACTIVE=prod
@@ -130,7 +130,7 @@ export FILE_STORAGE_PATH=/var/sdc/files
 # If the UI is at https://example.com:
 export APP_SECURITY_ALLOWED_ORIGINS_0=https://example.com
 
-java -jar cms-1.0.0.jar
+java -jar cms-1.0.2.jar
 ```
 
 PostgreSQL must be running and reachable from the server at `DB_HOST` **before** you start the JAR.
@@ -306,7 +306,7 @@ You do **not** have to give anyone your Git repository. Ship **built artifacts**
 
 ### What recipients need
 
-- **Backend:** one executable JAR (from `mvn package` in `sdc-cms-backend`), e.g. `cms-1.0.0.jar`.  
+- **Backend:** one executable JAR (from `mvn package` in `sdc-cms-backend`), e.g. `cms-1.0.2.jar`.  
 - **Frontend:** the contents of `dist/sdc-cms-frontend/` after `npm run build` (static HTML/JS/CSS).  
 - **Database:** PostgreSQL 14+ (they install it, or you include it via Docker Compose **without** your source tree).  
 - **Docs:** a short `README-INSTALL.txt` or PDF: Java version, env vars (`DB_*`, `JWT_SECRET`, `FILE_STORAGE_PATH`, `SPRING_PROFILES_ACTIVE=prod`, CORS), how to run `java -jar`, and how to point nginx at the `dist` folder and `/api`.
@@ -315,7 +315,7 @@ You do **not** have to give anyone your Git repository. Ship **built artifacts**
 
 ```
 sdc-cms-release/
-  backend/cms-1.0.0.jar
+  backend/cms-1.0.2.jar
   frontend/          ← copy of dist/sdc-cms-frontend/*
   docker-compose.yml + .env.example   ← optional, if you use Compose for Postgres only
   README-INSTALL.md
