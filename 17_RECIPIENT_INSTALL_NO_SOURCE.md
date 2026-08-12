@@ -10,14 +10,14 @@ Your developer should give you a ZIP that matches the tree below (same files may
 
 ### Layout of the delivered ZIP (after unzip)
 
-Use any root folder name (example: **`SDC-CMS`**). File names may differ slightly (e.g. **`cms-1.4.1.jar`**).
+Use any root folder name (example: **`SDC-CMS`**). File names may differ slightly (e.g. **`cms-1.5.0.jar`**).
 
 **Not inside the ZIP:** **`.env`** (secrets) — you create it on the server by copying **`.env.example`** and editing values.
 
 ```text
 SDC-CMS/
 ├── 17_RECIPIENT_INSTALL_NO_SOURCE.md    # this full guide (recommended)
-├── cms-1.4.1.jar                         # Spring Boot backend (version may differ)
+├── cms-1.5.0.jar                         # Spring Boot backend (version may differ)
 ├── docker-compose.postgres.yml
 ├── docker-compose.ui.yml
 ├── nginx-docker.conf                     # must be a file, not a folder
@@ -40,7 +40,7 @@ The **`uploads/`** directory (for **`FILE_STORAGE_PATH`**) is **not** shipped in
 
 | Item | Description |
 |------|-------------|
-| **`cms-1.4.1.jar`** | Backend application (version number may differ). |
+| **`cms-1.5.0.jar`** | Backend application (version number may differ). |
 | **`frontend/`** | **All files** from the production web build (the `browser` output folder — `index.html`, `*.js`, `assets/`, etc.). |
 | **`nginx-docker.conf`** | Nginx site config for the optional Docker UI container (see §5). |
 | **`docker-compose.postgres.yml`** | Starts PostgreSQL only (see §3). |
@@ -114,7 +114,7 @@ The first run uses the **`dev`** profile and **data initialization** so that an 
 
 ### 4.1 Choose folders
 
-- **`INSTALL_DIR`** — folder containing `cms-1.4.1.jar` (e.g. `C:\sdc-install`).
+- **`INSTALL_DIR`** — folder containing `cms-1.5.0.jar` (e.g. `C:\sdc-install`).
 - **`FILES_DIR`** — folder where uploaded files will be stored (must persist across restarts), e.g. `C:\sdc-install\uploads`.
 
 Create the uploads folder if it does not exist.
@@ -153,7 +153,7 @@ export FILE_STORAGE_PATH=/opt/sdc-install/uploads
 
 ```powershell
 cd C:\sdc-install
-java -jar .\cms-1.4.1.jar
+java -jar .\cms-1.5.0.jar
 ```
 
 Wait until the log shows that the application **started** (e.g. “Started CmsApplication”) and, if present, lines about **seed** / **Synced** demo accounts.
@@ -232,7 +232,7 @@ $env:SPRING_PROFILES_ACTIVE = "prod"
 Re-start:
 
 ```powershell
-java -jar .\cms-1.4.1.jar
+java -jar .\cms-1.5.0.jar
 ```
 
 ---
@@ -390,6 +390,7 @@ Deliver **both** new **`frontend/`** and new **JAR**. Apply **§10.2** then **§
 |-------|----------------|
 | **Existing data** | Generally **kept**. The app uses **Flyway** migrations: on startup the new JAR applies any **new** SQL migrations to the **same** database. Rows (users, courses, enrollments, etc.) remain unless a migration explicitly changes or removes them (unusual for routine releases). |
 | **Schema** | New JAR may add tables/columns/indexes via Flyway; the database evolves forward. |
+| **Global roles** | Version 1.5.0 migrates legacy global `ADMIN` rows to `SUPER_ADMIN`. `SUPER_ADMIN` is the canonical full-system role; stale `ADMIN` reads are accepted only as a compatibility alias. |
 | **First install vs upgrade** | **First install** with `APP_DATA_INIT_ENABLED=true` creates seed users/courses. On **upgrade**, keep **`APP_DATA_INIT_ENABLED=false`** in production so seed logic does not fight real data (dev profile sync may still reset known demo passwords if you mistakenly run `dev` with init — avoid on production). |
 | **Uploaded files** | Stored under **`FILE_STORAGE_PATH`**. Replacing the JAR does **not** delete them if that path is unchanged. Always back up this folder with the DB. |
 | **JWT / sessions** | Access JWTs are memory-only in the browser and expire quickly. Refresh cookies are opaque server-side sessions stored in `user_sessions`. Upgrading from a pre-1.4.1 package may require users to sign in again once because old refresh cookies are not the new opaque format. Changing `JWT_SECRET` invalidates existing access JWTs, but valid refresh sessions can issue fresh access JWTs. |
@@ -401,7 +402,7 @@ Deliver **both** new **`frontend/`** and new **JAR**. Apply **§10.2** then **§
 
 In each delivery, state clearly:
 
-- **Backend:** JAR file name / version (e.g. `cms-1.4.1.jar`).
+- **Backend:** JAR file name / version (e.g. `cms-1.5.0.jar`).
 - **Frontend:** build date or release tag.  
 - **Database:** “Flyway will migrate from previous version X” or “fresh DB required” (only if you ever ship a breaking change — document it).  
 - **Config changes:** new env vars, default port changes, or CORS notes.
@@ -586,4 +587,4 @@ into your ZIP folder **`frontend/`** (so `index.html` sits directly inside `fron
 
 ---
 
-*Document version: 1.4.1 — package examples updated for the 1.4.1 delivery.*
+*Document version: 1.5.0 — package examples updated for the 1.5.0 delivery.*
