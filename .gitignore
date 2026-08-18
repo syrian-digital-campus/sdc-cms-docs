@@ -1,0 +1,6 @@
+# Local / production secrets — never commit
+sdc-prod-credentials.txt
+CREDENTIALS.txt
+.env
+secrets/
+.idea/
